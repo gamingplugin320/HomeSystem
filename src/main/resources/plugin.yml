@@ -1,0 +1,6 @@
+name: HomeSystem
+version: '${version}'
+
+main: de.gamingplugin.homeSystem.HomeSystem
+api-version: '26.2'
+load: POSTWORLD
