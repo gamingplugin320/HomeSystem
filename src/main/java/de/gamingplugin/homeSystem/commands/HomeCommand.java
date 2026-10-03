@@ -10,6 +10,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class HomeCommand implements CommandExecutor {
 
     private String PREFIX = HomeSystem.PREFIX;
@@ -35,32 +37,30 @@ public class HomeCommand implements CommandExecutor {
         }
 
 
-        int coutdown = HomeSystem.getInstance().getConfig().getInt("COUTDOWN.length");
+        int coutdown = HomeSystem.getInstance().getConfig().getInt("COUNTDOWN.length");
 
-        if(coutdown < 0){
+        if (coutdown < 0) {
             player.sendMessage(PREFIX + "Die Cooldown-länge muss großer als 0 sein!");
             System.out.print("Die Cooldown-länge muss großer als 0 sein!");
             return true;
         }
-        player.teleport(HomeSystem.getHomeManager().getHome(player, home_name));
 
-     /*
-        new BukkitRunnable() {
+        AtomicInteger seconds = new AtomicInteger(coutdown);
 
-            int seconds = coutdown;
+        Bukkit.getScheduler().runTaskTimer(HomeSystem.getInstance(), task -> {
 
-            @Override
-            public void run() {
-                if (seconds == 0) {
-                    player.teleport(HomeSystem.getHomeManager().getHome(player, home_name));
-                    cancel();
-                    return;
-                }
-                player.sendTitle("Teleportiert in...", "§6§l" + coutdown);
-                seconds--;
+
+            if(seconds.get() == 0){
+                player.teleport(HomeSystem.getHomeManager().getHome(player, home_name));
+                task.cancel();
+                return;
             }
-        }.runTaskTimer(HomeSystem.getInstance(), 0L, 20L);
-      */
+
+            player.sendMessage(PREFIX + "Du wirst in §6" + seconds + "§7 teleportiert..");
+
+            seconds.decrementAndGet();
+        }, 0, 20L);
+
 
         return false;
     }
