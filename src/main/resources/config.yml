@@ -1,0 +1,25 @@
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃                                                                              ┃
+# ┃               H O M E S Y S T E M - P L A N T A R I A . N E T                ┃
+# ┃                                                                              ┃
+# ┃                    A Minecraft Plugin by gamingplugin                        ┃
+# ┃                                                                              ┃
+# ┃  ────────────────────────────────────────────────────────────────────────    ┃
+# ┃                                                                              ┃
+# ┃  Developer  : gamingplugin                                                   ┃
+# ┃  Version    : 1.0.0                                                          ┃
+# ┃  Project    : PLANTARIA.NET                                                  ┃
+# ┃  Discription:                                                                ┃
+# ┃                                                                              ┃
+# ┃  Made with ❤️, ☕ and a lot of code.                                        ┃
+# ┃                                                                              ┃
+# ┃  © 2026 gamingplugin320                                                      ┃
+# ┃                                                                              ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+MySQL:
+  HOST: ''
+  PORT:
+  DATABASE: ''
+  USERNAME: ''
+  PASSWORD: ''

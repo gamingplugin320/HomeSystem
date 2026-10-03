@@ -4,3 +4,6 @@ version: '${version}'
 main: de.gamingplugin.homeSystem.HomeSystem
 api-version: '26.2'
 load: POSTWORLD
+commands:
+  sethome:
+  home:
