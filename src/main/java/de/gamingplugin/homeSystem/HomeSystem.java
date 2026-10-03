@@ -5,6 +5,7 @@ import de.gamingplugin.homeSystem.commands.setHomeCommand;
 import de.gamingplugin.homeSystem.home.HomeManager;
 import de.gamingplugin.homeSystem.mysql.MySQLManager;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -51,6 +52,7 @@ public final class HomeSystem extends JavaPlugin {
         getCommand("home").setExecutor(new HomeCommand());
 
 
+
         getLogger().info("Plugin started!");
 
     }
@@ -78,6 +80,9 @@ public final class HomeSystem extends JavaPlugin {
         }
         if (!getConfig().contains("MySQL.PASSWORD")) {
             getConfig().set("MySQL.PASSWORD", "Password");
+        }
+        if (!getConfig().contains("COUNTDOWN.length")) {
+            getConfig().set("COUNTDOWN.length", 3);
         }
         saveConfig();
     }

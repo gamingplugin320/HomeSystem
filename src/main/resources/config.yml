@@ -23,3 +23,7 @@ MySQL:
   DATABASE: ''
   USERNAME: ''
   PASSWORD: ''
+
+#Die Länge des Cooldown ist in Sekunden anzugeben!
+COUNTDOWN:
+  length:

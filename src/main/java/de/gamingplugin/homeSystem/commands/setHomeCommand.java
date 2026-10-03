@@ -1,13 +1,17 @@
 package de.gamingplugin.homeSystem.commands;
 
 import de.gamingplugin.homeSystem.HomeSystem;
+import de.gamingplugin.homeSystem.home.HomeManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.scoreboard.Objective;
 import org.jetbrains.annotations.NotNull;
 
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 public class setHomeCommand implements CommandExecutor {
 
@@ -26,8 +30,17 @@ public class setHomeCommand implements CommandExecutor {
             return true;
         }
 
-        String home_name = args[0];
 
+        if (!(args[0].length() < 32)) {
+            player.sendMessage(PREFIX + "Dein Home darf maximal §632§7 Zeichen lang sein.");
+            return true;
+        }
+
+        String home_name = args[0];
+        if(HomeSystem.getHomeManager().getHomeNames(player).contains(home_name)){
+            player.sendMessage(PREFIX + "Dieser §6Home §7exisiert schon!");
+            return true;
+        }
 
         boolean created = HomeSystem.getHomeManager().createHome(player, home_name);
 
