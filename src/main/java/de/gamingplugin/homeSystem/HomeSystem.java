@@ -81,6 +81,15 @@ public final class HomeSystem extends JavaPlugin {
         if (!getConfig().contains("MySQL.PASSWORD")) {
             getConfig().set("MySQL.PASSWORD", "Password");
         }
+        if (!getConfig().contains("HOMES.1")) {
+            getConfig().set("HOMES.1", "homesystem.homes.1");
+        }
+        if (!getConfig().contains("HOMES.2")) {
+            getConfig().set("HOMES.2", "homesystem.homes.2");
+        }
+        if (!getConfig().contains("HOMES.3")) {
+            getConfig().set("HOMES.3", "homesystem.homes.3");
+        }
         if (!getConfig().contains("COUNTDOWN.length")) {
             getConfig().set("COUNTDOWN.length", 3);
         }

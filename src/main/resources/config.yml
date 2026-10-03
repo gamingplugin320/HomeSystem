@@ -17,12 +17,19 @@
 # ┃                                                                              ┃
 # ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
+#Parameter für die Datenbankverbindung!
 MySQL:
   HOST: ''
   PORT:
   DATABASE: ''
   USERNAME: ''
   PASSWORD: ''
+
+#Permissions zum Verwalten, wer wieviele Homes haben darf!
+HOMES:
+  1:
+  2:
+  3:
 
 #Die Länge des Cooldown ist in Sekunden anzugeben!
 COUNTDOWN:
