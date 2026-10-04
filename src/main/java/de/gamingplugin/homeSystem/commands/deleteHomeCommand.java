@@ -34,7 +34,7 @@ public class deleteHomeCommand implements CommandExecutor {
         boolean deleted = HomeSystem.getHomeManager().deleteHome(player, home_name);
 
         if (deleted) {
-            player.sendMessage(PREFIX + "Das Home §6" + home_name + "§7 wurde §eerfolreich §7gelöscht!");
+            player.sendMessage(PREFIX + "Das Home §6" + home_name + "§7 wurde §aerfolreich §7gelöscht!");
             return true;
         } else player.sendMessage(PREFIX + "Das Home §6" + home_name + "§7 konnte §cnicht §7gelöscht werden.");
 
