@@ -6,4 +6,6 @@ api-version: '26.2'
 load: POSTWORLD
 commands:
   sethome:
+  deletehome:
   home:
+  homes:

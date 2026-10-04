@@ -106,4 +106,18 @@ public class HomeManager {
     }
 
 
+    public boolean deleteHome(final Player player, final String name) {
+
+        try {
+            HomeSystem.getInstance().getMySQLManager().executeUpdate("DELETE FROM homes WHERE uuid = ? AND home_name = ?",
+                    player.getUniqueId().toString(), name);
+            return true;
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+            return false;
+        }
+
+    }
+
+
 }

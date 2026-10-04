@@ -74,7 +74,6 @@ public class MySQLManager {
                 "(id INT AUTO_INCREMENT PRIMARY KEY, " +
                 "uuid VARCHAR(36) NOT NULL, " +
                 "home_name VARCHAR(32) NOT NULL, " +
-                //"UNIQUE KEY unique_name (uuid, home_name), " +
                 "world_name VARCHAR(64) NOT NULL, " +
                 "x_position DOUBLE NOT NULL, " +
                 "y_position DOUBLE NOT NULL, " +

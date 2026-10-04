@@ -3,6 +3,7 @@ package de.gamingplugin.homeSystem.commands;
 import de.gamingplugin.homeSystem.HomeSystem;
 import de.gamingplugin.homeSystem.home.HomeManager;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -45,12 +46,18 @@ public class HomeCommand implements CommandExecutor {
             return true;
         }
 
+        final Location location = HomeSystem.getHomeManager().getHome(player, home_name);
+
+        if(location == null){
+            return true;
+        }
+
         AtomicInteger seconds = new AtomicInteger(coutdown);
 
         Bukkit.getScheduler().runTaskTimer(HomeSystem.getInstance(), task -> {
 
 
-            if(seconds.get() == 0){
+            if (seconds.get() == 0) {
                 player.teleport(HomeSystem.getHomeManager().getHome(player, home_name));
                 task.cancel();
                 return;
@@ -62,6 +69,6 @@ public class HomeCommand implements CommandExecutor {
         }, 0, 20L);
 
 
-        return false;
+        return true;
     }
 }

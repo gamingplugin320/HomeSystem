@@ -1,6 +1,8 @@
 package de.gamingplugin.homeSystem;
 
 import de.gamingplugin.homeSystem.commands.HomeCommand;
+import de.gamingplugin.homeSystem.commands.HomesCommand;
+import de.gamingplugin.homeSystem.commands.deleteHomeCommand;
 import de.gamingplugin.homeSystem.commands.setHomeCommand;
 import de.gamingplugin.homeSystem.home.HomeManager;
 import de.gamingplugin.homeSystem.mysql.MySQLManager;
@@ -14,8 +16,7 @@ import java.sql.SQLException;
 
 public final class HomeSystem extends JavaPlugin {
 
-    public static final String PREFIX = "§6Home §8| §7",
-            NO_PERMS = PREFIX + "Du hast keine Berechtigung!";
+    public static final String PREFIX = "§6Home §8| §7";
 
     private static HomeSystem instance;
     private static HomeManager homeManager = new HomeManager();
@@ -46,10 +47,13 @@ public final class HomeSystem extends JavaPlugin {
             exception.printStackTrace();
             Bukkit.getPluginManager().disablePlugin(this);
             getLogger().info("MySQL-Connection failed!");
+            return;
         }
 
         getCommand("sethome").setExecutor(new setHomeCommand());
         getCommand("home").setExecutor(new HomeCommand());
+        getCommand("deletehome").setExecutor(new deleteHomeCommand());
+        getCommand("homes").setExecutor(new HomesCommand());
 
 
 
@@ -60,6 +64,11 @@ public final class HomeSystem extends JavaPlugin {
     @Override
     public void onDisable() {
 
+        try {
+            mySQLManager.disconnect();
+        }catch (SQLException exception){
+            exception.printStackTrace();
+        }
 
     }
 
@@ -80,9 +89,6 @@ public final class HomeSystem extends JavaPlugin {
         }
         if (!getConfig().contains("MySQL.PASSWORD")) {
             getConfig().set("MySQL.PASSWORD", "Password");
-        }
-        if (!getConfig().contains("HOMES.1")) {
-            getConfig().set("HOMES.1", "homesystem.homes.1");
         }
         if (!getConfig().contains("HOMES.2")) {
             getConfig().set("HOMES.2", "homesystem.homes.2");
